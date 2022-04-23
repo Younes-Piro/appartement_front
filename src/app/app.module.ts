@@ -1,24 +1,34 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderModule } from './components/header/header.module';
 import { MaterialModule } from './material/material.module';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { FlexLayoutModule } from '@angular/flex-layout'
+import { HeaderComponent } from './components/header/header.component';
+import { HouseComponent } from './components/house/house.component';
+import { HomeComponent } from './components/home/home.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    HeaderComponent,
+    HouseComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HeaderModule,
-    MaterialModule
+    MaterialModule,
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    FlexLayoutModule
 
   ],
   providers: [],

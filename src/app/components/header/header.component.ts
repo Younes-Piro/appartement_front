@@ -16,9 +16,6 @@ export class HeaderComponent implements OnInit {
 
   public onToggleSidenav = () => {}
 
-  testo(text:String){
-    console.log(text);
-  }
 
 
 }

@@ -1,25 +1,26 @@
-<mat-toolbar color="primary">
-    <div fxHide.gt-xs>
-        <button mat-icon-button (click)="onToggleSidenav()">
-            <mat-icon>menu</mat-icon>
-        </button>
-    </div>
-    <div>
-        <a routerLink="/">Dashboard</a>
-    </div>
-    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
-        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
-            <li>
-                <a routerLink="/house">Houses</a> 
-            </li>
-            <li>    
-                <a routerLink="/salam">Salam</a> 
-            </li>
-            <li>
-                <mat-slide-toggle  (change)="stylingService.toggleIsDarkTheme()" labelPosition="before">
-                    <mat-icon>bedtime</mat-icon>
-                </mat-slide-toggle>
-            </li>
-        </ul>
-    </div>
-</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav role="navigation" >
+
+    </mat-sidenav>  
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <div fxHide.gt-xs>
+                <button mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div>
+                <a routerLink="/">Dashboard</a>
+            </div>
+            <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+                <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+                    <li>
+                        <a routerLink="house">Houses</a> 
+                    </li>
+                </ul>
+            </div>
+        </mat-toolbar>
+    </mat-sidenav-content>  
+    
+</mat-sidenav-container>
+
