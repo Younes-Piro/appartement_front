@@ -1,0 +1,6 @@
+query all_appartements{
+  allAppartements{
+    id
+    price
+  }
+}

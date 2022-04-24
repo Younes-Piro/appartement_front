@@ -1,11 +1,8 @@
-<div *ngIf="loading">
-    loading...
-</div>
-<div *ngIf="error">
-    loading...
-</div>
-<div *ngIf="appartements">
-    <div *ngFor="let appartement of appartements">
-        <p>{{ appartement.id}}: {{ appartement.price }}</p>
-    </div>
-</div>
+<ul >
+    <li *ngFor="let appartement of appartements | async">
+        <mat-card>
+        <h3>{{ appartement.price }}</h3>
+        </mat-card>
+    </li>
+</ul>
+  
