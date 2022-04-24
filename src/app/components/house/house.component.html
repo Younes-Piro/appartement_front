@@ -1,7 +1,11 @@
-<mat-card>Simple card</mat-card>
-<mat-card>Simple card</mat-card>
-<mat-card>Simple card</mat-card>
-<mat-card>Simple card</mat-card>
-<mat-card>Simple card</mat-card>
-<mat-card>Simple card</mat-card>
-<mat-card>Simple card</mat-card>
+<div *ngIf="loading">
+    loading...
+</div>
+<div *ngIf="error">
+    loading...
+</div>
+<div *ngIf="appartements">
+    <div *ngFor="let appartement of appartements">
+        <p>{{ appartement.id}}: {{ appartement.price }}</p>
+    </div>
+</div>

@@ -11,6 +11,8 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { HeaderComponent } from './components/header/header.component';
 import { HouseComponent } from './components/house/house.component';
 import { HomeComponent } from './components/home/home.component';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { HomeComponent } from './components/home/home.component';
     CommonModule,
     RouterModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    GraphQLModule,
+    HttpClientModule
 
   ],
   providers: [],
