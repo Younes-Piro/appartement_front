@@ -3,23 +3,14 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-html, body { height: 100%; margin: 0;}
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 $my-app-primary: mat-palette($mat-indigo);
 $my-app-accent:  mat-palette($mat-pink, 500, 900, A100);
-$my-app-warn:    mat-palette($mat-deep-orange);
-$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
-// Set custom background color
-$custom-background-color: map_get($mat-blue-grey, 50);
+$my-app-warn:    mat-palette($mat-red);
 
-// -or- Can set colour by hex value too
-$custom-background-color: #ffffff;
+$my-app-theme: mat-dark-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
-$background: map-get($my-app-theme, background);
-$background: map_merge($background, (background: $custom-background-color));
-$my-app-theme: map_merge($my-app-theme, (background: $background));
-@include angular-material-theme($my-app-theme);
+ @include angular-material-theme($my-app-theme);
 
-
-
+html, body { height: 100%}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;  margin: 0;}

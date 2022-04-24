@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { StylingService } from '../../services/styling.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent  {
 
+    isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
-  constructor(public stylingService: StylingService) { }
-
-  ngOnInit(): void {
-  }
-
-  public onToggleSidenav = () => {}
+    constructor(private breakpointObserver: BreakpointObserver) {}
 
 
 
