@@ -10,6 +10,12 @@ import { All_AppartementsGQL, AppartementsType, All_AppartementsDocument} from '
 export class HouseComponent implements OnInit {
 
   appartements : AppartementsType[] = [];
+  load: boolean = true
+  length?:number;
+  pageSize:number = 9;
+  pageSizeOptions: number[] = [9, 27, 54, 90];
+  page:number=1
+
 
   constructor(
     private readonly all_AppartementsGQL: All_AppartementsGQL,
@@ -24,7 +30,9 @@ export class HouseComponent implements OnInit {
      
       ({data,loading}) =>{
         console.log(loading);
+        this.load = loading
         this.appartements=data.allAppartements;
+        this.length = this.appartements.length
       } )
   }
   }

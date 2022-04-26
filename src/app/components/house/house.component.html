@@ -1,10 +1,16 @@
+<mat-spinner *ngIf="load"></mat-spinner>
+
 <div class="content">
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
-      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let appartement of appartements" >
-        <app-house-items  [appartement]='appartement'>
-          
-        </app-house-items>
-        
-      </div>
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let appartement of appartements | paginate: { itemsPerPage: 8, currentPage: page , totalItems:length } " >
+      <app-house-items  
+        [appartement]='appartement'>
+      </app-house-items>  
     </div>
-    </div>
+  </div>
+</div>
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               [pageSizeOptions]="pageSizeOptions"
+               aria-label="Select page">
+</mat-paginator>

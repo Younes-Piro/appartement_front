@@ -4,6 +4,20 @@ div{
    .example-card {
         max-width: 400px;  
     } 
+    margin-bottom: 1.5rem;
+}
+
+mat-spinner{
+    margin: auto;
+    width: 50%;
+    margin-top: 15rem;
+}
+
+mat-paginator{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 
   

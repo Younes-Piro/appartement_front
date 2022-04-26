@@ -8,6 +8,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 const MaterialComponents = [
@@ -19,7 +21,9 @@ const MaterialComponents = [
   MatButtonModule,
   LayoutModule,
   MatListModule,
-  MatGridListModule
+  MatGridListModule,
+  MatProgressSpinnerModule,
+  MatPaginatorModule
 ]
 
 
