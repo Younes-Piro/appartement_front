@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
-import { HttpLink } from 'apollo-angular/http';
-import { All_AppartementsGQL, AppartementsType } from 'src/generated-types';
-import { map, Observable } from 'rxjs';
+import { All_AppartementsGQL, AppartementsType, All_AppartementsDocument} from 'src/generated-types';
 
 @Component({
   selector: 'app-house',
@@ -12,13 +9,23 @@ import { map, Observable } from 'rxjs';
 })
 export class HouseComponent implements OnInit {
 
-  appartements ?: Observable<AppartementsType[]>;
+  appartements : AppartementsType[] = [];
 
-  constructor(private readonly all_AppartementsGQL: All_AppartementsGQL) { }
+  constructor(
+    private readonly all_AppartementsGQL: All_AppartementsGQL,
+    private apollo:Apollo
+  ){}
 
   ngOnInit(): void {
-    this.appartements = this.all_AppartementsGQL.watch()
-    .valueChanges.pipe(map((result : any) => result?.data?.allAppartements));
-    }
+    this.apollo.watchQuery<any>({
+      query:All_AppartementsDocument 
+      
+    }).valueChanges.subscribe(
+     
+      ({data,loading}) =>{
+        console.log(loading);
+        this.appartements=data.allAppartements;
+      } )
+  }
   }
 

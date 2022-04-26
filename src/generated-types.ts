@@ -40,6 +40,12 @@ export type Query = {
 };
 
 
+export type QueryAllAppartementsArgs = {
+  first?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+};
+
+
 export type QuerySingleAppartementArgs = {
   id?: InputMaybe<Scalars['Int']>;
 };

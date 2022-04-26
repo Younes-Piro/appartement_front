@@ -11,8 +11,10 @@ import { FlexLayoutModule } from '@angular/flex-layout'
 import { HeaderComponent } from './components/header/header.component';
 import { HouseComponent } from './components/house/house.component';
 import { HomeComponent } from './components/home/home.component';
-import { GraphQLModule } from './graphql.module';
+import { GraphQLModule } from './graphql/graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { HouseItemsComponent } from './components/house-items/house-items.component';
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HeaderComponent,
     HouseComponent,
-    HomeComponent
+    HomeComponent,
+    HouseItemsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     FlexLayoutModule,
     GraphQLModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
 
   ],
   providers: [],

@@ -1,8 +1,10 @@
-<ul >
-    <li *ngFor="let appartement of appartements | async">
-        <mat-card>
-        <h3>{{ appartement.price }}</h3>
-        </mat-card>
-    </li>
-</ul>
-  
+<div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let appartement of appartements" >
+        <app-house-items  [appartement]='appartement'>
+          
+        </app-house-items>
+        
+      </div>
+    </div>
+    </div>
