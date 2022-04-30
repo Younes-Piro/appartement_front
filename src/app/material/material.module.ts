@@ -10,6 +10,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
+import {MatDividerModule} from '@angular/material/divider'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatOptionModule } from '@angular/material/core';
+
 
 
 const MaterialComponents = [
@@ -23,7 +28,11 @@ const MaterialComponents = [
   MatListModule,
   MatGridListModule,
   MatProgressSpinnerModule,
-  MatPaginatorModule
+  MatPaginatorModule,
+  MatTableModule,
+  MatDividerModule,
+  MatFormFieldModule,
+  MatOptionModule
 ]
 
 

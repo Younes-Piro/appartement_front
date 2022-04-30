@@ -15,6 +15,10 @@ import { GraphQLModule } from './graphql/graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { HouseItemsComponent } from './components/house-items/house-items.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { BarComponent } from './components/charts/bar/bar.component';
+import { PieComponent } from './components/charts/pie/pie.component';
+import { PlotComponent } from './components/charts/plot/plot.component';
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { HouseItemsComponent } from './components/house-items/house-items.compon
     HeaderComponent,
     HouseComponent,
     HomeComponent,
-    HouseItemsComponent
+    HouseItemsComponent,
+    DashboardComponent,
+    BarComponent,
+    PieComponent,
+    PlotComponent
   ],
   imports: [
     BrowserModule,
