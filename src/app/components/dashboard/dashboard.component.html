@@ -1,20 +1,16 @@
-
-<app-plot></app-plot>
-  
-<mat-divider></mat-divider>
-
-<div fxLayout="row" class="containerOne">
-  <app-table></app-table>
-
-    
-  <mat-divider [vertical]="true"></mat-divider>
-  <app-pie></app-pie>
-</div>
-
-<mat-divider></mat-divider>
-
-<div>
-  <app-bar
-    [data]='data'>
-  </app-bar>
+<div class="grid-container">
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async; index as i" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-content class="dashboard-card-content">
+          <div [ngSwitch]="i">
+            <!-- the same view can be shown in more than one case -->
+            <app-pie *ngSwitchCase="1"></app-pie>
+            <app-table *ngSwitchCase="2"></app-table>
+            <app-bar [data]='data' *ngSwitchCase="3"></app-bar>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

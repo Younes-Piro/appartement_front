@@ -16,9 +16,9 @@ export class PieComponent implements OnInit {
     {"Framework": "Ember", "Stars": "21471", "Released": "2011"},
   ];
   private svg:any;
-  private margin = 50;
-  private width = 500;
-  private height = 400;
+  private margin = 0;
+  private width = 350;
+  private height = 260;
   // The radius of the pie chart is half the smallest side
   private radius = Math.min(this.width, this.height) / 2 - this.margin;
   private colors:any;

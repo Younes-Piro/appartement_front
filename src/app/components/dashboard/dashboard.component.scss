@@ -1,13 +1,21 @@
-table {
-  width: 90%;
+.grid-container {
+  margin: 20px;
 }
 
-
-.containerOne{
-    margin: 50px;
-    margin-top: 80px;
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
 }
 
-app-table{
-  width: 100%;
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
 }

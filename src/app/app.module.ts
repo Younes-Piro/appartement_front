@@ -20,6 +20,13 @@ import { BarComponent } from './components/charts/bar/bar.component';
 import { PieComponent } from './components/charts/pie/pie.component';
 import { PlotComponent } from './components/charts/plot/plot.component';
 import { TableComponent } from './components/charts/table/table.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { DashboardCardsComponent } from './components/dashboard-cards/dashboard-cards.component';
 
 
 @NgModule({
@@ -33,7 +40,8 @@ import { TableComponent } from './components/charts/table/table.component';
     BarComponent,
     PieComponent,
     PlotComponent,
-    TableComponent
+    TableComponent,
+    DashboardCardsComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +54,13 @@ import { TableComponent } from './components/charts/table/table.component';
     FlexLayoutModule,
     GraphQLModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule
 
   ],
   providers: [],
