@@ -21,16 +21,16 @@ export type AppartementsType = {
   NmbrOfPieces: Scalars['Int'];
   city: Scalars['String'];
   concierge: Scalars['Int'];
-  condition: Scalars['String'];
   currency: Scalars['String'];
   garage: Scalars['Int'];
   id: Scalars['ID'];
   location: Scalars['String'];
   nmbrOfRooms: Scalars['Int'];
-  price: Scalars['Int'];
+  price: Scalars['Float'];
   security: Scalars['Int'];
   surface: Scalars['Int'];
   title: Scalars['String'];
+  type: Scalars['String'];
 };
 
 export type Query = {
@@ -53,13 +53,13 @@ export type QuerySingleAppartementArgs = {
 export type All_AppartementsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type All_AppartementsQuery = { __typename?: 'Query', allAppartements?: Array<{ __typename?: 'AppartementsType', id: string, price: number } | null> | null };
+export type All_AppartementsQuery = { __typename?: 'Query', allAppartements?: Array<{ __typename?: 'AppartementsType', id: string, title: string } | null> | null };
 
 export const All_AppartementsDocument = gql`
     query all_appartements {
   allAppartements {
     id
-    price
+    title
   }
 }
     `;

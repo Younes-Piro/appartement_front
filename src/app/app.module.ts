@@ -19,6 +19,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BarComponent } from './components/charts/bar/bar.component';
 import { PieComponent } from './components/charts/pie/pie.component';
 import { PlotComponent } from './components/charts/plot/plot.component';
+import { TableComponent } from './components/charts/table/table.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PlotComponent } from './components/charts/plot/plot.component';
     DashboardComponent,
     BarComponent,
     PieComponent,
-    PlotComponent
+    PlotComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,

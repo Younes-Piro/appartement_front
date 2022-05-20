@@ -11,13 +11,9 @@ const routes: Routes = [
     component:HomeComponent,
     children:[
       {path: 'house', component: HouseComponent},
-      {path: 'dashboard', component: DashboardComponent},
-
     ]
   },
-  
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

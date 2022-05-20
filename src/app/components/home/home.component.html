@@ -1,7 +1,10 @@
 <app-header>
     <div>
         <router-outlet></router-outlet>
-    </div>    
+    </div>   
+    <div *ngIf="router.url === '/'">
+        <app-dashboard></app-dashboard>
+    </div> 
 </app-header>
 
 

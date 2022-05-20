@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as d3 from 'd3';
 
 @Component({
@@ -7,13 +7,8 @@ import * as d3 from 'd3';
   styleUrls: ['./bar.component.scss']
 })
 export class BarComponent implements OnInit {
-  private data = [
-    {"Framework": "Tanger", "Stars": "166443", "Released": "2014"},
-    {"Framework": "Rabat", "Stars": "150793", "Released": "2013"},
-    {"Framework": "Casablanca", "Stars": "62342", "Released": "2016"},
-    {"Framework": "Fes", "Stars": "27647", "Released": "2010"},
-    {"Framework": "Marrakesh", "Stars": "21471", "Released": "2011"},
-  ];
+  
+  @Input() data ?: any;
 
   private svg:any;
   private margin = 50;
@@ -24,7 +19,7 @@ export class BarComponent implements OnInit {
 
   ngOnInit(): void {
     this.createSvg();
-    this.drawBars(this.data);
+    this.drawBars(this?.data);
   }
 
   private createSvg(): void {
