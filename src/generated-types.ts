@@ -33,28 +33,57 @@ export type AppartementsType = {
   type: Scalars['String'];
 };
 
+export type Dictionary = {
+  __typename?: 'Dictionary';
+  key?: Maybe<Scalars['String']>;
+  value?: Maybe<InnerItem>;
+};
+
+export type InnerItem = {
+  __typename?: 'InnerItem';
+  txt1?: Maybe<Scalars['Float']>;
+  txt2?: Maybe<Scalars['String']>;
+};
+
 export type Query = {
   __typename?: 'Query';
   allAppartements?: Maybe<Array<Maybe<AppartementsType>>>;
-  singleAppartement?: Maybe<AppartementsType>;
+  cards?: Maybe<Array<Maybe<Dictionary>>>;
+  detailsGrouping?: Maybe<Array<Maybe<Dictionary>>>;
+  singleAppartement?: Maybe<Array<Maybe<AppartementsType>>>;
 };
 
-
-export type QueryAllAppartementsArgs = {
-  first?: InputMaybe<Scalars['Int']>;
-  skip?: InputMaybe<Scalars['Int']>;
-};
+export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type QuerySingleAppartementArgs = {
-  id?: InputMaybe<Scalars['Int']>;
-};
+export type Unnamed_1_Query = { __typename?: 'Query', cards?: Array<{ __typename?: 'Dictionary', key?: string | null, value?: { __typename?: 'InnerItem', txt1?: number | null } | null } | null> | null };
 
 export type All_AppartementsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type All_AppartementsQuery = { __typename?: 'Query', allAppartements?: Array<{ __typename?: 'AppartementsType', id: string, title: string } | null> | null };
 
+export const Document = gql`
+    {
+  cards {
+    key
+    value {
+      txt1
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class GQL extends Apollo.Query<Query, QueryVariables> {
+    document = Document;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
 export const All_AppartementsDocument = gql`
     query all_appartements {
   allAppartements {

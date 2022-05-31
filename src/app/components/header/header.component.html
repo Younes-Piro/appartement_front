@@ -1,10 +1,10 @@
-<mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+<mat-sidenav-container class="sidenav-container" color="primary">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" color="primary"
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'"
         [opened]="(isHandset$ | async) === false">
-      <mat-toolbar>Dashboard</mat-toolbar>
-      <mat-nav-list>
+      <mat-toolbar >Dashboard</mat-toolbar>
+      <mat-nav-list color="primary">
         <a mat-list-item routerLink="">
           <mat-icon>dashboard</mat-icon>
         </a>

@@ -4,9 +4,17 @@
       <mat-card class="dashboard-card">
         <mat-card-content class="dashboard-card-content">
           <div [ngSwitch]="i">
+
+            <app-header-stats *ngSwitchCase="0"></app-header-stats>
+
+
             <!-- the same view can be shown in more than one case -->
             <app-pie *ngSwitchCase="1"></app-pie>
-            <app-table *ngSwitchCase="2"></app-table>
+            <app-table 
+            [dataSource] = "dataSource"
+            [displayedColumns] = "displayedColumns"
+            *ngSwitchCase="2"
+            ></app-table>
             <app-bar [data]='data' *ngSwitchCase="3"></app-bar>
           </div>
         </mat-card-content>

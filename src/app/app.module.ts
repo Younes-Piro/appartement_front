@@ -26,7 +26,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
-import { DashboardCardsComponent } from './components/dashboard-cards/dashboard-cards.component';
+import { CardsStatsComponent } from './components/cards-stats/cards-stats.component';
+import { HeaderStatsComponent } from './components/header-stats/header-stats.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { DashboardCardsComponent } from './components/dashboard-cards/dashboard-
     PieComponent,
     PlotComponent,
     TableComponent,
-    DashboardCardsComponent,
+    CardsStatsComponent,
+    HeaderStatsComponent
   ],
   imports: [
     BrowserModule,

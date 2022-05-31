@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as elasticsearch from 'elasticsearch';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,6 @@ export class StylingService {
     console.log(this.isDarkTheme);
     
   }
+
   constructor() { }
 }

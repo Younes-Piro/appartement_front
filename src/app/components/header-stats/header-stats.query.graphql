@@ -1,0 +1,8 @@
+query{
+  cards{
+    key
+    value{
+      txt1
+    }
+  }
+}
