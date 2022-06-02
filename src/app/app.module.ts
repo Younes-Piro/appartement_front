@@ -26,7 +26,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
-import { CardsStatsComponent } from './components/cards-stats/cards-stats.component';
 import { HeaderStatsComponent } from './components/header-stats/header-stats.component';
 
 
@@ -42,7 +41,6 @@ import { HeaderStatsComponent } from './components/header-stats/header-stats.com
     PieComponent,
     PlotComponent,
     TableComponent,
-    CardsStatsComponent,
     HeaderStatsComponent
   ],
   imports: [

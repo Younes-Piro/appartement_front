@@ -53,18 +53,18 @@ export type Query = {
   singleAppartement?: Maybe<Array<Maybe<AppartementsType>>>;
 };
 
-export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+export type Cards_ValuesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { __typename?: 'Query', cards?: Array<{ __typename?: 'Dictionary', key?: string | null, value?: { __typename?: 'InnerItem', txt1?: number | null } | null } | null> | null };
+export type Cards_ValuesQuery = { __typename?: 'Query', cards?: Array<{ __typename?: 'Dictionary', key?: string | null, value?: { __typename?: 'InnerItem', txt1?: number | null } | null } | null> | null };
 
 export type All_AppartementsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type All_AppartementsQuery = { __typename?: 'Query', allAppartements?: Array<{ __typename?: 'AppartementsType', id: string, title: string } | null> | null };
 
-export const Document = gql`
-    {
+export const Cards_ValuesDocument = gql`
+    query cards_values {
   cards {
     key
     value {
@@ -77,8 +77,8 @@ export const Document = gql`
   @Injectable({
     providedIn: 'root'
   })
-  export class GQL extends Apollo.Query<Query, QueryVariables> {
-    document = Document;
+  export class Cards_ValuesGQL extends Apollo.Query<Cards_ValuesQuery, Cards_ValuesQueryVariables> {
+    document = Cards_ValuesDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);

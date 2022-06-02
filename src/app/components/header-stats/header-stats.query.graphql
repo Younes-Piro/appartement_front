@@ -1,4 +1,4 @@
-query{
+query cards_values{
   cards{
     key
     value{
