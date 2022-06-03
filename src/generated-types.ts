@@ -42,7 +42,7 @@ export type Dictionary = {
 export type InnerItem = {
   __typename?: 'InnerItem';
   txt1?: Maybe<Scalars['Float']>;
-  txt2?: Maybe<Scalars['String']>;
+  txt2?: Maybe<Scalars['Float']>;
 };
 
 export type Query = {
@@ -52,6 +52,11 @@ export type Query = {
   detailsGrouping?: Maybe<Array<Maybe<Dictionary>>>;
   singleAppartement?: Maybe<Array<Maybe<AppartementsType>>>;
 };
+
+export type Grouping_CityQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Grouping_CityQuery = { __typename?: 'Query', detailsGrouping?: Array<{ __typename?: 'Dictionary', key?: string | null, value?: { __typename?: 'InnerItem', txt1?: number | null, txt2?: number | null } | null } | null> | null };
 
 export type Cards_ValuesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -63,6 +68,28 @@ export type All_AppartementsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type All_AppartementsQuery = { __typename?: 'Query', allAppartements?: Array<{ __typename?: 'AppartementsType', id: string, title: string } | null> | null };
 
+export const Grouping_CityDocument = gql`
+    query grouping_city {
+  detailsGrouping {
+    key
+    value {
+      txt1
+      txt2
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class Grouping_CityGQL extends Apollo.Query<Grouping_CityQuery, Grouping_CityQueryVariables> {
+    document = Grouping_CityDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
 export const Cards_ValuesDocument = gql`
     query cards_values {
   cards {

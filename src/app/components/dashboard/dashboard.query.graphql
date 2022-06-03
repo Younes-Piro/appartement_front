@@ -1,0 +1,9 @@
+query grouping_city {
+  detailsGrouping {
+    key
+    value {
+      txt1
+      txt2
+    }
+  }
+}

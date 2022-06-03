@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
-import * as elasticsearch from 'elasticsearch';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StylingService {
-  isDarkTheme : boolean = false
+  isDarkTheme: boolean = false;
 
-  toggleIsDarkTheme(){
+  toggleIsDarkTheme() {
     console.log(this.isDarkTheme);
 
-    this.isDarkTheme = !this.isDarkTheme
+    this.isDarkTheme = !this.isDarkTheme;
     console.log(this.isDarkTheme);
-    
   }
 
-  constructor() { }
+  constructor() {}
 }
