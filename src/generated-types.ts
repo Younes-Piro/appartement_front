@@ -50,6 +50,7 @@ export type Query = {
   allAppartements?: Maybe<Array<Maybe<AppartementsType>>>;
   cards?: Maybe<Array<Maybe<Dictionary>>>;
   detailsGrouping?: Maybe<Array<Maybe<Dictionary>>>;
+  numberRoomsCount?: Maybe<Array<Maybe<Dictionary>>>;
   singleAppartement?: Maybe<Array<Maybe<AppartementsType>>>;
 };
 
@@ -57,6 +58,11 @@ export type Grouping_CityQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Grouping_CityQuery = { __typename?: 'Query', detailsGrouping?: Array<{ __typename?: 'Dictionary', key?: string | null, value?: { __typename?: 'InnerItem', txt1?: number | null, txt2?: number | null } | null } | null> | null };
+
+export type Total_Count_RoomsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Total_Count_RoomsQuery = { __typename?: 'Query', numberRoomsCount?: Array<{ __typename?: 'Dictionary', key?: string | null, value?: { __typename?: 'InnerItem', txt1?: number | null } | null } | null> | null };
 
 export type Cards_ValuesQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -85,6 +91,27 @@ export const Grouping_CityDocument = gql`
   })
   export class Grouping_CityGQL extends Apollo.Query<Grouping_CityQuery, Grouping_CityQueryVariables> {
     document = Grouping_CityDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const Total_Count_RoomsDocument = gql`
+    query total_count_rooms {
+  numberRoomsCount {
+    key
+    value {
+      txt1
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class Total_Count_RoomsGQL extends Apollo.Query<Total_Count_RoomsQuery, Total_Count_RoomsQueryVariables> {
+    document = Total_Count_RoomsDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);

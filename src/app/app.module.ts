@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderComponent } from './components/header/header.component';
 import { HouseComponent } from './components/house/house.component';
 import { HomeComponent } from './components/home/home.component';
@@ -27,7 +27,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HeaderStatsComponent } from './components/header-stats/header-stats.component';
+import * as PlotlyJS from 'plotly.js-dist-min';
+import { PlotlyModule } from 'angular-plotly.js';
 
+PlotlyModule.plotlyjs = PlotlyJS;
 
 @NgModule({
   declarations: [
@@ -41,7 +44,7 @@ import { HeaderStatsComponent } from './components/header-stats/header-stats.com
     PieComponent,
     PlotComponent,
     TableComponent,
-    HeaderStatsComponent
+    HeaderStatsComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,10 +63,10 @@ import { HeaderStatsComponent } from './components/header-stats/header-stats.com
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule
-
+    LayoutModule,
+    PlotlyModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

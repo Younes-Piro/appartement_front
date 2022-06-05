@@ -7,3 +7,12 @@ query grouping_city {
     }
   }
 }
+
+query total_count_rooms {
+  numberRoomsCount {
+    key
+    value {
+      txt1
+    }
+  }
+}
