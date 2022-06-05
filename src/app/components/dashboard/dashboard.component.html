@@ -1,24 +1,33 @@
-<div class="grid-container">
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async; index as i" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-content class="dashboard-card-content">
-          <div [ngSwitch]="i">
+<div class="p-4">
 
-            <app-header-stats *ngSwitchCase="0"></app-header-stats>
+  <app-header-stats></app-header-stats>
 
 
-            <!-- the same view can be shown in more than one case -->
-            <app-pie *ngSwitchCase="1"></app-pie>
-            <app-table 
-            [dataSource] = "dataSource"
-            [displayedColumns] = "displayedColumns"
-            *ngSwitchCase="2"
-            ></app-table>
-            <app-bar [data]='data5' *ngSwitchCase="3"></app-bar>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+  <section class="charts mt-4">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="chart-container rounded-2 p-3">
+          <h3 class="fs-6 mb-3">Chart title number one</h3>
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="chart-container rounded-2 p-3">
+          <h3 class="fs-6 mb-3">Chart title number two</h3>
+          <canvas id="myChart2"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  
+
+  <section class="charts mt-4">
+    <div class="chart-container p-3">
+      <h3 class="fs-6 mb-3">Chart title number three</h3>
+      <div style="height: 300px">
+        <app-pie></app-pie>
+      </div>
+    </div>
+  </section>
 </div>

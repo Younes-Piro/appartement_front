@@ -99,11 +99,6 @@ export class DashboardComponent {
         this.cards_values = data.detailsGrouping;
         console.log(data);
         this.cards_values.map((single_value, index) => {
-          console.log(single_value.key);
-          console.log(single_value.value?.txt1);
-          console.log(single_value.value?.txt2);
-          console.log(index);
-
           const object = new dataObject(
             index,
             String(single_value?.key),
