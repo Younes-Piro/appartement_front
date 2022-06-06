@@ -5,6 +5,8 @@ import {
   Grouping_CityGQL,
   Total_Count_RoomsDocument,
   Total_Count_RoomsGQL,
+  Surface_DistributionDocument,
+  EveryCityNumRoomsDocument,
 } from 'src/generated-types';
 
 import { Apollo } from 'apollo-angular';
@@ -21,7 +23,30 @@ export class DashboardComponent {
   rooms_values: number[] = [];
   rooms_number: number[] = [];
 
+  surface_values: number[] = [];
+  surface_number: number[] = [];
+
+  distinc_city_rooms_values: number[] = [];
+  distinc_city_rooms_number: number[] = [];
+
+  selectedValue: string = 'Tanger';
+  cities: any[] = [
+    { value: 'Tanger', viewValue: 'Tanger' },
+    { value: 'Marrakech', viewValue: 'Marrakech' },
+    { value: 'Agadir', viewValue: 'Agadir' },
+    { value: 'Casablanca', viewValue: 'Casablanca' },
+    { value: 'Fès', viewValue: 'Fès' },
+    { value: 'Rabat', viewValue: 'Rabat' },
+  ];
   load: boolean = true;
+  displayedColumns: string[] = [
+    'position',
+    'City',
+    'Number of rooms',
+    'Surface',
+  ];
+  ELEMENT_DATA: any[] = [];
+  dataSource: any[] = [];
 
   constructor(
     private readonly groupingCityGQL: Grouping_CityGQL,
@@ -30,6 +55,24 @@ export class DashboardComponent {
   ) {}
 
   ngOnInit(): void {
+    // count rooms
+    this.apollo
+      .watchQuery<any>({
+        query: Surface_DistributionDocument,
+      })
+      .valueChanges.subscribe(({ data, loading }) => {
+        data.surfaceDistribution.map((surface: any) => {
+          const {
+            key,
+            value: { txt1 },
+          } = surface;
+          this.surface_number.push(key);
+          this.surface_values.push(txt1);
+        });
+      });
+
+    console.log(this.surface_values);
+
     this.apollo
       .watchQuery<any>({
         query: Total_Count_RoomsDocument,
@@ -44,18 +87,16 @@ export class DashboardComponent {
           this.rooms_values.push(txt1);
         });
       });
-    console.log(this.rooms_number);
-    console.log(this.rooms_values);
 
+    // implements table
     this.apollo
       .watchQuery<any>({
         query: Grouping_CityDocument,
       })
       .valueChanges.subscribe(({ data, loading }) => {
-        console.log(loading);
         this.load = loading;
         this.cards_values = data.detailsGrouping;
-        console.log(data);
+
         this.cards_values.map((single_value, index) => {
           const object = new dataObject(
             index,
@@ -63,7 +104,51 @@ export class DashboardComponent {
             String(single_value.value?.txt1),
             String(single_value.value?.txt2)
           );
+
+          this.ELEMENT_DATA[index] = object.getObject();
+          console.log('ELEMENT DATA' + this.ELEMENT_DATA[index].name);
         });
+        // console.log(this.ELEMENT_DATA);
+        this.dataSource = this.ELEMENT_DATA;
+      });
+
+    //every city
+    this.apollo
+      .watchQuery<any>({
+        query: EveryCityNumRoomsDocument,
+        variables: { city: this.selectedValue },
+      })
+      .valueChanges.subscribe(({ data, loading }) => {
+        console.log(data);
+        data.everyCityNumRooms.map((singleRoom: any) => {
+          const {
+            key,
+            value: { txt1 },
+          } = singleRoom;
+          this.distinc_city_rooms_number.push(key);
+          this.distinc_city_rooms_values.push(txt1);
+        });
+      });
+  }
+  onChangeCity() {
+    this.apollo
+      .watchQuery<any>({
+        query: EveryCityNumRoomsDocument,
+        variables: { city: this.selectedValue },
+      })
+      .valueChanges.subscribe(({ data, loading }) => {
+        this.distinc_city_rooms_number = [];
+        this.distinc_city_rooms_values = [];
+        console.log(data);
+        data.everyCityNumRooms.map((singleRoom: any) => {
+          const {
+            key,
+            value: { txt1 },
+          } = singleRoom;
+          this.distinc_city_rooms_number.push(key);
+          this.distinc_city_rooms_values.push(txt1);
+        });
+        console.log(this.distinc_city_rooms_number);
       });
   }
 }

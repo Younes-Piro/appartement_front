@@ -1,6 +1,18 @@
-query all_appartements{
-  allAppartements{
+query all_appartements {
+  allAppartements {
     id
     title
+    location
+    security
+    garage
+    concierge
+    city
+    currency
+    nmbrOfRooms
+    NmbrOfBathrooms
+    NmbrOfPieces
+    type
+    surface
+    price
   }
 }

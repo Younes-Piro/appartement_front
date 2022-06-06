@@ -1,15 +1,37 @@
-<mat-card class="mat-elevation-z4" >
-    <mat-card-header>
-      <mat-card-title>{{appartement?.id}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg">
-    <mat-card-content>
+<div class="container">
+  <div class="box">
+    <div class="top">
+      <img src="https://cdn.pixabay.com/photo/2014/07/10/17/18/large-home-389271__340.jpg" alt="" />
+      <span
+        ><i class="fa fa-heart"></i><i class="fa fa-exchange-alt"></i
+      ></span>
+    </div>
+    <div class="bottom">
+      <h3>Appartement In {{appartement?.location}}</h3>
       <p>
-        The Himalayas is a mountain range in Asia.
+        {{appartement?.title}}
       </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+      <div class="advants">
+        <div>
+          <span>Bedrooms</span>
+          <div><i class="fa fa-th-large"></i><span> {{appartement?.NmbrOfPieces}}</span></div>
+        </div>
+        <div>
+          <span>Bathrooms</span>
+          <div><i class="fa fa-shower"></i><span>{{appartement?.NmbrOfBathrooms}}</span></div>
+        </div>
+        <div>
+          <span>Area</span>
+          <div>
+            <i class="fa fa-vector-square"></i
+            ><span>{{appartement?.surface}}<span>m2</span></span>
+          </div>
+        </div>
+      </div>
+      <div class="price">
+        <span>For Sale</span>
+        <span>{{appartement?.price}} MAD</span>
+      </div>
+    </div>
+  </div>
+</div>

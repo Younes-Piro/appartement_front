@@ -18,8 +18,8 @@ export class HouseComponent implements OnInit {
   appartements: AppartementsType[] = [];
   load: boolean = true;
   length?: number;
-  pageSize: number = 8;
-  pageSizeOptions: number[] = [8, 40, 80, 120];
+  pageSize: number = 9;
+  pageSizeOptions: number[] = [9, 45, 90, 135];
   page: number = 1;
   isConnected = false;
   status?: string;

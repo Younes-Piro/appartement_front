@@ -16,3 +16,21 @@ query total_count_rooms {
     }
   }
 }
+
+query surface_distribution {
+  surfaceDistribution {
+    key
+    value {
+      txt1
+    }
+  }
+}
+
+query everyCityNumRooms($city: String!) {
+  everyCityNumRooms(city: $city) {
+    key
+    value {
+      txt1
+    }
+  }
+}

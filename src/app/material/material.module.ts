@@ -8,14 +8,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatTableModule} from '@angular/material/table';
-import {MatDividerModule} from '@angular/material/divider'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
-
-
+import { MatSelectModule } from '@angular/material/select';
 
 const MaterialComponents = [
   MatToolbarModule,
@@ -32,16 +31,12 @@ const MaterialComponents = [
   MatTableModule,
   MatDividerModule,
   MatFormFieldModule,
-  MatOptionModule
-]
-
+  MatOptionModule,
+  MatSelectModule,
+];
 
 @NgModule({
-  imports: [
-    MaterialComponents
-  ],
-  exports: [
-    MaterialComponents
-  ]
+  imports: [MaterialComponents],
+  exports: [MaterialComponents],
 })
-export class MaterialModule { }
+export class MaterialModule {}

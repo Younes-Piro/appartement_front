@@ -7,13 +7,15 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="chart-container rounded-2 p-3">
-          <h3 class="fs-6 mb-3">Chart title number one</h3>
-          <app-bar></app-bar>
+          <app-bar
+            [values] = [surface_values]
+            [labels] = [surface_number] 
+            >
+          </app-bar>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="chart-container rounded-2 p-3">
-          <h3 class="fs-6 mb-3">Chart title number two</h3>
           <app-pie
             [values] = [rooms_values]
             [labels] = [rooms_number]          
@@ -29,14 +31,30 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="chart-container rounded-2 p-3">
-          <h3 class="fs-6 mb-3">Chart title number one</h3>
-          <app-pie></app-pie>
+          <form>
+            <mat-form-field appearance="fill">
+              <mat-label>choose your city</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="city" (selectionChange)="onChangeCity()">
+                <mat-option *ngFor="let city of cities" [value]="city.value">
+                  {{city.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+          <app-pie
+          [values] = [distinc_city_rooms_values]
+          [labels] = [distinc_city_rooms_number] 
+          ></app-pie>
         </div>
       </div>
       <div class="col-lg-6">
         <div class="chart-container rounded-2 p-3">
-          <h3 class="fs-6 mb-3">Chart title number two</h3>
-          <canvas id="myChart2"></canvas>
+          <div class="container table-responsive py-5 table-statistique"> 
+            <app-table
+              [displayedColumns] = "displayedColumns"
+              [dataSource] = "dataSource"
+            ></app-table>
+          </div>
         </div>
       </div>
     </div>

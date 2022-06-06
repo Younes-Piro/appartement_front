@@ -50,8 +50,15 @@ export type Query = {
   allAppartements?: Maybe<Array<Maybe<AppartementsType>>>;
   cards?: Maybe<Array<Maybe<Dictionary>>>;
   detailsGrouping?: Maybe<Array<Maybe<Dictionary>>>;
+  everyCityNumRooms?: Maybe<Array<Maybe<Dictionary>>>;
   numberRoomsCount?: Maybe<Array<Maybe<Dictionary>>>;
   singleAppartement?: Maybe<Array<Maybe<AppartementsType>>>;
+  surfaceDistribution?: Maybe<Array<Maybe<Dictionary>>>;
+};
+
+
+export type QueryEveryCityNumRoomsArgs = {
+  city?: InputMaybe<Scalars['String']>;
 };
 
 export type Grouping_CityQueryVariables = Exact<{ [key: string]: never; }>;
@@ -64,6 +71,18 @@ export type Total_Count_RoomsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Total_Count_RoomsQuery = { __typename?: 'Query', numberRoomsCount?: Array<{ __typename?: 'Dictionary', key?: string | null, value?: { __typename?: 'InnerItem', txt1?: number | null } | null } | null> | null };
 
+export type Surface_DistributionQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Surface_DistributionQuery = { __typename?: 'Query', surfaceDistribution?: Array<{ __typename?: 'Dictionary', key?: string | null, value?: { __typename?: 'InnerItem', txt1?: number | null } | null } | null> | null };
+
+export type EveryCityNumRoomsQueryVariables = Exact<{
+  city: Scalars['String'];
+}>;
+
+
+export type EveryCityNumRoomsQuery = { __typename?: 'Query', everyCityNumRooms?: Array<{ __typename?: 'Dictionary', key?: string | null, value?: { __typename?: 'InnerItem', txt1?: number | null } | null } | null> | null };
+
 export type Cards_ValuesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -72,7 +91,7 @@ export type Cards_ValuesQuery = { __typename?: 'Query', cards?: Array<{ __typena
 export type All_AppartementsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type All_AppartementsQuery = { __typename?: 'Query', allAppartements?: Array<{ __typename?: 'AppartementsType', id: string, title: string } | null> | null };
+export type All_AppartementsQuery = { __typename?: 'Query', allAppartements?: Array<{ __typename?: 'AppartementsType', id: string, title: string, location: string, security: number, garage: number, concierge: number, city: string, currency: string, nmbrOfRooms: number, NmbrOfBathrooms: number, NmbrOfPieces: number, type: string, surface: number, price: number } | null> | null };
 
 export const Grouping_CityDocument = gql`
     query grouping_city {
@@ -117,6 +136,48 @@ export const Total_Count_RoomsDocument = gql`
       super(apollo);
     }
   }
+export const Surface_DistributionDocument = gql`
+    query surface_distribution {
+  surfaceDistribution {
+    key
+    value {
+      txt1
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class Surface_DistributionGQL extends Apollo.Query<Surface_DistributionQuery, Surface_DistributionQueryVariables> {
+    document = Surface_DistributionDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
+export const EveryCityNumRoomsDocument = gql`
+    query everyCityNumRooms($city: String!) {
+  everyCityNumRooms(city: $city) {
+    key
+    value {
+      txt1
+    }
+  }
+}
+    `;
+
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class EveryCityNumRoomsGQL extends Apollo.Query<EveryCityNumRoomsQuery, EveryCityNumRoomsQueryVariables> {
+    document = EveryCityNumRoomsDocument;
+    
+    constructor(apollo: Apollo.Apollo) {
+      super(apollo);
+    }
+  }
 export const Cards_ValuesDocument = gql`
     query cards_values {
   cards {
@@ -143,6 +204,18 @@ export const All_AppartementsDocument = gql`
   allAppartements {
     id
     title
+    location
+    security
+    garage
+    concierge
+    city
+    currency
+    nmbrOfRooms
+    NmbrOfBathrooms
+    NmbrOfPieces
+    type
+    surface
+    price
   }
 }
     `;

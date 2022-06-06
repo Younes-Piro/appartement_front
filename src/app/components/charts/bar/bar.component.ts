@@ -6,20 +6,28 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./bar.component.scss'],
 })
 export class BarComponent implements OnInit {
-  title = 'dynamic-plots';
-  // Bar Chart
-  graph = {
-    data: [
-      {
-        x: [1, 2, 3],
-        y: [2, 3, 4],
-        type: 'bar',
-      },
-    ],
-    layout: { title: 'Some Data to Hover Over' },
-  };
+  @Input() values?: any;
+  @Input() labels?: any;
+  title?: string;
+  graph?: any = {};
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.title = 'dynamic-plots';
+      // Bar Chart
+      this.graph = {
+        data: [
+          {
+            x: [...this.labels[0]],
+            y: [...this.values[0]],
+            type: 'bar',
+            // orientation: 'h',
+          },
+        ],
+        layout: { title: 'distribution of surface' },
+      };
+    }, 1000);
+  }
 }
